@@ -1,0 +1,13 @@
+{
+  "id": "{{ id }}",
+  "timestamp": "{{ timestamp }}",
+    "speed": "{{ speed }}",
+    "engine_load": "{{ engine_load }}",
+    "fuel_level": "{{ fuel_level }}",
+    "throttle_position": "{{ throttle_position }}",
+    "engine_coolant_temp": "{{ engine_coolant_temp }}",
+    "engine_rpm": "{{ engine_rpm }}",
+    "intake_air_temp": "{{ intake_air_temp }}",
+    "ambient_air_temp": "{{ ambient_air_temp }}",
+    "horsepower": "{{ horsepower }}"
+}
