@@ -1,9 +1,25 @@
 from google.cloud import pubsub_v1
+import json
+from google.auth import jwt
 
 project_id = "team-2-266717"
+# topic_name = "projects/%s/topics/car" % project_id
 topic_name = "car"
 
-publisher = pubsub_v1.PublisherClient()
+service_account_info = json.load(open("service-account-info.json"))
+audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
+
+credentials = jwt.Credentials.from_service_account_info(
+    service_account_info, audience=audience
+)
+
+
+publisher_audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
+credentials_pub = credentials.with_claims(audience=publisher_audience)
+
+
+publisher = pubsub_v1.PublisherClient(credentials=credentials_pub)
+
 # The `topic_path` method creates a fully qualified identifier
 # in the form `projects/{project_id}/topics/{topic_name}`
 topic_path = publisher.topic_path(project_id, topic_name)
