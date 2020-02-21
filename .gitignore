@@ -1,4 +1,8 @@
+all_models
+
 service-account-info.json
+
+coral_camera/service-account-info.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
